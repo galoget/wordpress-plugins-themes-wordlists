@@ -4,6 +4,33 @@ WordPress Plugins and Themes Wordlists for **Ethical Hacking &amp; Penetration T
 
 These wordlists can be useful when doing **enumeration** and **reconnaissance** with tools like **wpscan** or **nuclei**.
 
+## Nuclei
+
+1. The nuclei's template (`wordpress-plugins-detect.yaml`) and the wordlist (`wp-plugins.txt`) **MUST** be on the same folder.
+
+2. Run the following command on the folder where the wordlist and the template were located:
+
+```bash
+nuclei -u https://your-target-site.com -itags fuzz -t wordpress-plugins-detect.yaml
+```
+
+The output should be similar to the following picture:
+
+![Running WordPress Plugin Detection Template in Nuclei using wp-plugins.txt Wordlist](nuclei/nuclei-wordpress-plugins-detect-using-wp-plugins-wordlist.png "Nuclei using wp-plugins.txt wordlist")
+
+## WPScan
+
+1. Run the following command on the folder where the wordlist was located:
+
+```bash
+wpscan --url https://your-target-site.com -e ap --plugins-list wp-plugins.txt --plugins-detection aggressive
+```
+
+The output should be similar to the following picture:
+
+![Running WPScan Aggressive WordPress Plugin Detection using wp-plugins.txt Wordlist](wpscan/wpscan-aggressive-wordpress-plugin-detection-using-wp-plugins-wordlist.png "WPScan using wp-plugins.txt wordlist")
+
+
 ## Wordlists Revisions:
 - **WordPress Plugins:**
    - Number of Plugins in the Wordlist: 98.134
